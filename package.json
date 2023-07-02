@@ -38,11 +38,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run copy-article-styles && GENERATE_SOURCEMAP=false react-app-rewired build",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve -s build -l 4000",
-    "copy-article-styles": "cpx '../src/hooks/articles/useStylesAndExtensions.ts' src/styling"
+    "serve": "serve -s build -l 4000"
   },
   "eslintConfig": {
     "extends": [
@@ -63,7 +62,6 @@
     ]
   },
   "devDependencies": {
-    "cpx": "^1.5.0",
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.2.1",
     "serve": "^14.2.0"
