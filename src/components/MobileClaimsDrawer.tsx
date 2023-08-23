@@ -7,7 +7,7 @@ import useIsSmallScreen from "../hooks/useIsSmallScreen";
 import Claim from "./Article/ClaimsList/Claim";
 
 export default function MobileClaimsDrawer({ claims }: Props) {
-  const [isClaimsDrawerOpened, { open, close }] = useDisclosure();
+  const [isClaimsDrawerOpened, { toggle, close }] = useDisclosure();
   const isSmallScreen = useIsSmallScreen();
   const isMediumScreen = useIsMediumScreen();
   const isSmallFormFactor = isSmallScreen || isMediumScreen;
@@ -20,6 +20,7 @@ export default function MobileClaimsDrawer({ claims }: Props) {
         opened={isClaimsDrawerOpened}
         onClose={close}
         transitionProps={{ duration: 400 }}
+        position="right"
         title={
           <Text
             sx={() => ({
@@ -44,7 +45,7 @@ export default function MobileClaimsDrawer({ claims }: Props) {
       </Drawer>
 
       <Affix
-        position={{ bottom: "40px", left: "0px" }}
+        position={{ bottom: "30vh", right: "0px" }}
         display={!isSmallFormFactor ? "none" : undefined}
       >
         <Button
@@ -53,7 +54,7 @@ export default function MobileClaimsDrawer({ claims }: Props) {
             height: "fit-content",
             borderRadius: "0px",
           })}
-          onClick={open}
+          onClick={toggle}
         >
           <Text
             sx={() => ({
@@ -63,7 +64,7 @@ export default function MobileClaimsDrawer({ claims }: Props) {
               transform: "rotate(180deg)",
             })}
           >
-            Summary
+            {isClaimsDrawerOpened ? "Close" : "Summary"}
           </Text>
         </Button>
       </Affix>
