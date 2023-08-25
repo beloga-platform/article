@@ -30,7 +30,7 @@ export default function useStylesAndExtensions(): {
         "& p": {
           fontSize: isSmallScreen ? "18px" : "20px",
           marginTop: "0px",
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
         },
         a: { color: "inherit" },
         "li p": {
@@ -38,17 +38,19 @@ export default function useStylesAndExtensions(): {
           marginTop: "8px",
         },
         ol: {
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
           fontSize: isSmallScreen ? "18px" : "20px",
         },
         li: {
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
           fontsize: isSmallScreen ? "18px" : "20px",
         },
         "& h1": {
           fontSize: isSmallScreen ? "32px" : "42px",
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
+          fontWeight: 500,
         },
+        "& strong": { fontWeight: 500 },
         ".is-editor-empty:before": {
           userSelect: "none",
           content: "attr(data-placeholder)",
@@ -62,11 +64,17 @@ export default function useStylesAndExtensions(): {
         },
         "& h2": {
           fontSize: isSmallScreen ? "24px" : "30px",
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
+          fontWeight: 500,
         },
         "& h3": {
           fontSize: isSmallScreen ? "20px" : "24px",
-          fontFamily: "sans-serif",
+          fontFamily: "Vulf Sans, sans-serif",
+          fontWeight: 500,
+        },
+        "& h4": {
+          fontFamily: "Vulf Sans, sans-serif",
+          fontWeight: 500,
         },
         "& blockquote": {
           borderLeft: `3px solid ${
@@ -110,7 +118,7 @@ export default function useStylesAndExtensions(): {
         },
       }),
       Placeholder.configure({
-        placeholder: "Uncover the truth...",
+        placeholder: "Let your words do the talking.",
       }),
       TextStyle,
       FontFamily,
