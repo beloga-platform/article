@@ -13,8 +13,9 @@ export default function Navbar() {
   return (
     <Box
       sx={(theme) => ({
-        padding: "10px 20px",
+        padding: "0px 20px",
         width: "100%",
+        height: "60px",
         position: "sticky",
         top: 0,
         backgroundColor:
@@ -31,14 +32,18 @@ export default function Navbar() {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          height: "100%",
         })}
       >
         <Anchor href="https://www.beloga.xyz">
           <Image
-            src="QmdqHL4Cn3DEW4tpymVFCJMGbCygELGp7rRrureanJ78QN"
+            src={
+              colorScheme === "light"
+                ? "QmbHjkfdiaBFnr3fFqJZ9NKwvbftk8JrJSRqFeZNfQoR6W"
+                : "QmRQ5NCK46B9QrSBr18u5Z8wefThceedzqAop9okFmEkkm"
+            }
             alt="Beloga logo"
-            width={34}
-            height={34}
+            height={32}
           />
         </Anchor>
         <ActionIcon

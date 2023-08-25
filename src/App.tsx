@@ -63,8 +63,8 @@ function App() {
                 sx={() => ({
                   display: isSmallScreen || isMediumScreen ? "none" : undefined,
                   position: "sticky",
-                  top: "57.5px",
-                  height: "calc(100vh - 57.5px)",
+                  top: "60px",
+                  height: "calc(100vh - 60px)",
                   maxWidth: "500px",
                   flexGrow: 1,
                   flexShrink: 1,
