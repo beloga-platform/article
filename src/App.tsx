@@ -36,8 +36,22 @@ function App() {
       withGlobalStyles
       withNormalizeCSS
       theme={{
-        primaryColor: "gray",
+        primaryColor: "beloga-blue",
         colorScheme: colorScheme || systemColorScheme,
+        colors: {
+          "beloga-blue": [
+            "#F8FAFC",
+            "#D6E8F0",
+            "#B3DAEA",
+            "#8CCFEB",
+            "#78BDD9",
+            "#69ABC6",
+            "#5E9AB3",
+            "#588A9E",
+            "#557988",
+            "#516B76",
+          ],
+        },
       }}
     >
       <ColorSchemeProvider
