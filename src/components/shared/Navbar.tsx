@@ -44,6 +44,7 @@ export default function Navbar() {
             }
             alt="Beloga logo"
             height={32}
+            width="auto"
           />
         </Anchor>
         <ActionIcon
