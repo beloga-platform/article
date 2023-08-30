@@ -10,8 +10,20 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Document from "@tiptap/extension-document";
 import Typography from "@tiptap/extension-typography";
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
+import { lowlight } from "lowlight";
+import tsLanguageSyntax from "highlight.js/lib/languages/typescript";
+import cppLanguageSyntax from "highlight.js/lib/languages/cpp";
+import jsLanguageSyntax from "highlight.js/lib/languages/javascript";
+import pyLanguageSyntax from "highlight.js/lib/languages/python";
 
+import { primaryMono, primarySans } from "./useStylesAndExtensions/customFonts";
 import { useIsSmallScreen } from "./useStylesAndExtensions/utils";
+
+lowlight.registerLanguage("ts", tsLanguageSyntax);
+lowlight.registerLanguage("js", jsLanguageSyntax);
+lowlight.registerLanguage("cpp", cppLanguageSyntax);
+lowlight.registerLanguage("python", pyLanguageSyntax);
 
 export default function useStylesAndExtensions(): {
   articleStyles: Styles<RichTextEditorStylesNames, Record<string, unknown>>;
@@ -30,7 +42,7 @@ export default function useStylesAndExtensions(): {
         "& p": {
           fontSize: isSmallScreen ? "18px" : "20px",
           marginTop: "0px",
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
         },
         a: { color: "inherit" },
         "li p": {
@@ -38,16 +50,16 @@ export default function useStylesAndExtensions(): {
           marginTop: "8px",
         },
         ol: {
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontSize: isSmallScreen ? "18px" : "20px",
         },
         li: {
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontsize: isSmallScreen ? "18px" : "20px",
         },
         "& h1": {
           fontSize: isSmallScreen ? "32px" : "42px",
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontWeight: 500,
         },
         "& strong": { fontWeight: 500 },
@@ -64,16 +76,16 @@ export default function useStylesAndExtensions(): {
         },
         "& h2": {
           fontSize: isSmallScreen ? "24px" : "30px",
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontWeight: 500,
         },
         "& h3": {
           fontSize: isSmallScreen ? "20px" : "24px",
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontWeight: 500,
         },
         "& h4": {
-          fontFamily: "Vulf Sans, sans-serif",
+          fontFamily: `${primarySans.style.fontFamily}, sans-serif`,
           fontWeight: 500,
         },
         "& blockquote": {
@@ -95,6 +107,9 @@ export default function useStylesAndExtensions(): {
         },
         "& pre": {
           overflowWrap: "anywhere",
+        },
+        "& code": {
+          fontFamily: `${primaryMono.style.fontFamily}, monospace`,
         },
         ".ProseMirror-selectednode": {
           outline: "3px solid",
@@ -128,6 +143,9 @@ export default function useStylesAndExtensions(): {
         defaultAlignment: "left",
       }),
       Typography,
+      CodeBlockLowlight.configure({
+        lowlight,
+      }),
     ],
   };
 }
