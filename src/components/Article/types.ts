@@ -4,8 +4,12 @@ export type ArticleInfo = {
   supportURL: string | null;
   createdAt: string;
   topics?: string[];
-  originalAuthor: string | null;
-  originalURL: string | null;
+  originalSource: {
+    url: string;
+    author: string;
+    textContent: string;
+    title: string;
+  } | null;
   claims: string[];
   title: string;
   authorURL: string;
