@@ -4,8 +4,8 @@ import readingTime from "reading-time";
 
 import Content from "./Article/Content";
 import TopicBadge from "./Article/TopicBadge";
-import OriginalSourceCard from "./Article/OriginalSourceCard";
 import SharedBy from "./Article/SharedBy";
+import PreviewArticleCard from "./Article/PreviewArticleCard";
 
 import { extractContent } from "../modules/utils";
 
@@ -45,16 +45,15 @@ export default function Article() {
             </Group>
           </Stack>
         </Card>
-
-        {(articleInfo.originalAuthor || articleInfo.originalURL) && (
-          <OriginalSourceCard
-            originalAuthor={articleInfo.originalAuthor || undefined}
-            originalURL={articleInfo.originalURL || undefined}
-          />
-        )}
       </Stack>
 
       <Content htmlContent={htmlContent} />
+
+      {articleInfo.originalSource && (
+        <Box mt={50}>
+          <PreviewArticleCard originalSource={articleInfo.originalSource} />
+        </Box>
+      )}
 
       {articleInfo.topics && (
         <Group mt={50} spacing={8}>

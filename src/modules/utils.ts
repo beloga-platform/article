@@ -15,8 +15,7 @@ export const extractContent = (
   const topics = data.topics;
   const supportURL = data.userInfo.supportURL || null;
 
-  const originalURL = data.originalSource.originalURL;
-  const originalAuthor = data.originalSource.originalAuthor;
+  const originalSource = data.originalSource || null;
   const authorURL = data.userInfo.authorURL;
   const claims = data.claims;
   const title = data.title;
@@ -27,8 +26,7 @@ export const extractContent = (
     createdAt,
     supportURL,
     topics,
-    originalURL,
-    originalAuthor,
+    originalSource,
     claims,
     title,
     authorURL,
