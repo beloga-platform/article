@@ -17,7 +17,10 @@ export default function PreviewArticleCard({
         >
           <IconNews size={isSmallScreen ? "2rem" : "3rem"} />
         </Center>
-        <Stack sx={() => ({ flexShrink: 1, width: "100%" })}>
+        <Stack sx={() => ({ flexShrink: 1, width: "100%" })} spacing={4}>
+          <Text fz="sm">
+            {url.split("//")[1].split("/")[0].replace("www.", "")}
+          </Text>
           <Title
             order={isSmallScreen ? 4 : 3}
             lineClamp={2}
