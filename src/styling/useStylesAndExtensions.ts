@@ -19,6 +19,7 @@ import pyLanguageSyntax from "highlight.js/lib/languages/python";
 
 import { primaryMono, primarySans } from "./useStylesAndExtensions/customFonts";
 import { useIsSmallScreen } from "./useStylesAndExtensions/utils";
+import { Figure } from "./useStylesAndExtensions/figure";
 
 lowlight.registerLanguage("ts", tsLanguageSyntax);
 lowlight.registerLanguage("js", jsLanguageSyntax);
@@ -96,11 +97,14 @@ export default function useStylesAndExtensions(): {
           padding: "0px 20px",
           fontStyle: "italic",
         },
-        "& img": {
-          marginTop: "20px",
+        "& img": { display: "block" },
+        "& figure": {
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.25rem",
         },
-        "img + p": {
-          fontSize: "1rem",
+        "figure figcaption": {
+          textAlign: "center",
         },
         "& hr": {
           marginBottom: "20px",
@@ -124,6 +128,15 @@ export default function useStylesAndExtensions(): {
       DocumentWithAlwaysHeader,
       StarterKit.configure({
         document: false,
+      }),
+      Figure.configure({
+        HTMLAttributes: {
+          style:
+            "max-width:100%;margin-left:auto;margin-right:auto;display:flex;width:100%;border-radius:4px;",
+        },
+        HTMLAttributesImg: {
+          id: "article-img",
+        },
       }),
       Image.configure({
         HTMLAttributes: {
