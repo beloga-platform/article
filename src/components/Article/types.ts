@@ -8,6 +8,7 @@ export type ArticleInfo = {
     url: string;
     textContent: string;
     title: string;
+    coverImageURL: string | null;
   } | null;
   claims: string[];
   title: string;
