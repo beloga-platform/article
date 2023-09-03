@@ -9,6 +9,7 @@ export type ArticleInfo = {
     textContent: string;
     title: string;
     coverImageURL: string | null;
+    description: string;
   } | null;
   claims: string[];
   title: string;

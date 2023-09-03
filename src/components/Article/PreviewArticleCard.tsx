@@ -3,7 +3,7 @@ import { Card, Stack, Title, Text, Image } from "@mantine/core";
 import useIsSmallScreen from "../../hooks/useIsSmallScreen";
 
 export default function PreviewArticleCard({
-  originalSource: { title, textContent, url, coverImageURL },
+  originalSource: { title, description, url, coverImageURL },
 }: Props) {
   const isSmallScreen = useIsSmallScreen();
 
@@ -41,7 +41,7 @@ export default function PreviewArticleCard({
           sx={() => ({ textDecoration: "none", wordBreak: "break-word" })}
           fz="sm"
         >
-          {textContent.replace(/\n/g, " ")}
+          {description}
         </Text>
       </Stack>
     </Card>
@@ -52,7 +52,7 @@ type Props = {
   originalSource: {
     title: string;
     url: string;
-    textContent: string;
+    description: string;
     coverImageURL: string | null;
   };
 };
