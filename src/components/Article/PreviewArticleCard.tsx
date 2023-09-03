@@ -8,7 +8,7 @@ export default function PreviewArticleCard({
   const isSmallScreen = useIsSmallScreen();
 
   return (
-    <Card radius="md" component="a" href={url} target="_blank">
+    <Card radius="md" component="a" href={url} target="_blank" withBorder>
       {coverImageURL && (
         <Card.Section mb={8}>
           <Image
