@@ -23,7 +23,7 @@ export default function Article() {
         marginBottom: "80px",
       })}
     >
-      <Stack sx={() => ({ marginTop: "32px" })} spacing={16}>
+      <Stack spacing={16}>
         <Card withBorder bg="inherit">
           <Stack spacing={4}>
             <SharedBy
