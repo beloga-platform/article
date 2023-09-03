@@ -6,7 +6,6 @@ export type ArticleInfo = {
   topics?: string[];
   originalSource: {
     url: string;
-    author: string;
     textContent: string;
     title: string;
   } | null;

@@ -18,7 +18,7 @@ export default function PreviewArticleCard({
           <IconNews size={isSmallScreen ? "2rem" : "3rem"} />
         </Center>
         <Stack sx={() => ({ flexShrink: 1, width: "100%" })} spacing={4}>
-          <Text fz="sm">
+          <Text fz="sm" lineClamp={1} sx={() => ({ wordBreak: "break-all" })}>
             {url.split("//")[1].split("/")[0].replace("www.", "")}
           </Text>
           <Title
