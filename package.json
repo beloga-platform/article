@@ -21,6 +21,7 @@
     "@tiptap/extension-text-align": "^2.1.7",
     "@tiptap/extension-text-style": "^2.1.7",
     "@tiptap/extension-typography": "^2.0.1",
+    "@tiptap/extension-youtube": "^2.1.7",
     "@tiptap/react": "^2.1.7",
     "@tiptap/starter-kit": "^2.1.7",
     "@types/jest": "^27.5.2",

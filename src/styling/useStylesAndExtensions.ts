@@ -11,6 +11,7 @@ import Image from "@tiptap/extension-image";
 import Document from "@tiptap/extension-document";
 import Typography from "@tiptap/extension-typography";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
+import Youtube from "@tiptap/extension-youtube";
 import { lowlight } from "lowlight";
 import tsLanguageSyntax from "highlight.js/lib/languages/typescript";
 import cppLanguageSyntax from "highlight.js/lib/languages/cpp";
@@ -107,6 +108,17 @@ export default function useStylesAndExtensions({
           display: "flex",
           flexDirection: "column",
           gap: "0.25rem",
+          maxWidth: "100%",
+          width: "100%",
+          borderRadius: "4px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginBottom: "20px",
+          marginTop: "0px",
+        },
+        "figure img": {
+          maxWidth: "100%",
+          width: "100%",
         },
         "figure figcaption:has(> br)::before": isEditable
           ? {
@@ -140,6 +152,21 @@ export default function useStylesAndExtensions({
               ? theme.colors.gray[0]
               : theme.colors.dark[9],
         },
+        "div iframe": {
+          width: "100%",
+          borderRadius: "4px",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        },
+        "div:has(> iframe)": {
+          borderRadius: "4px",
+          overflow: "hidden",
+          marginBottom: "20px",
+          position: "relative",
+          paddingBottom: "56.25%",
+        },
       },
     },
     extensions: [
@@ -148,15 +175,11 @@ export default function useStylesAndExtensions({
         document: false,
       }),
       Figure.configure({
-        HTMLAttributes: {
-          style:
-            "max-width:100%;margin-left:auto;margin-right:auto;display:flex;width:100%;border-radius:4px;",
-        },
-        HTMLAttributesImg: {
-          id: "article-img",
-          style: "max-width:100%;width:100%;",
-        },
+        HTMLAttributesImg: { id: "article-img" },
       }),
+      /**
+       * @deprecated - use of Image extension is deprecated, please do not update
+       */
       Image.configure({
         HTMLAttributes: {
           style:
@@ -178,7 +201,8 @@ export default function useStylesAndExtensions({
       CodeBlockLowlight.configure({
         lowlight,
       }),
-      TrailingNode,
+      TrailingNode.configure({ onlyAfter: ["figure", "youtube"] }),
+      Youtube.configure({ HTMLAttributes: { frameBorder: 0 } }),
     ],
   };
 }
