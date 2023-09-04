@@ -20,13 +20,18 @@ import pyLanguageSyntax from "highlight.js/lib/languages/python";
 import { primaryMono, primarySans } from "./useStylesAndExtensions/customFonts";
 import { useIsSmallScreen } from "./useStylesAndExtensions/utils";
 import { Figure } from "./useStylesAndExtensions/figure";
+import { TrailingNode } from "./useStylesAndExtensions/trailingNode";
 
 lowlight.registerLanguage("ts", tsLanguageSyntax);
 lowlight.registerLanguage("js", jsLanguageSyntax);
 lowlight.registerLanguage("cpp", cppLanguageSyntax);
 lowlight.registerLanguage("python", pyLanguageSyntax);
 
-export default function useStylesAndExtensions(): {
+export default function useStylesAndExtensions({
+  isEditable,
+}: {
+  isEditable: boolean;
+}): {
   articleStyles: Styles<RichTextEditorStylesNames, Record<string, unknown>>;
   extensions: Extensions;
 } {
@@ -103,8 +108,17 @@ export default function useStylesAndExtensions(): {
           flexDirection: "column",
           gap: "0.25rem",
         },
-        "figure figcaption": {
-          textAlign: "center",
+        "figure figcaption br::before": isEditable
+          ? {
+              content: '"Image caption (optional)"',
+              color:
+                theme.colorScheme === "dark"
+                  ? theme.colors.gray[7]
+                  : theme.colors.gray[4],
+            }
+          : undefined,
+        "figure figcaption br": {
+          content: "close-quote",
         },
         "& hr": {
           marginBottom: "20px",
@@ -159,6 +173,7 @@ export default function useStylesAndExtensions(): {
       CodeBlockLowlight.configure({
         lowlight,
       }),
+      TrailingNode,
     ],
   };
 }

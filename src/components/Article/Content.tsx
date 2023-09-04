@@ -4,7 +4,9 @@ import { useEditor } from "@tiptap/react";
 import useStylesAndExtensions from "../../styling/useStylesAndExtensions";
 
 export default function Content({ htmlContent }: Props) {
-  const { articleStyles, extensions } = useStylesAndExtensions();
+  const { articleStyles, extensions } = useStylesAndExtensions({
+    isEditable: false,
+  });
   const editor = useEditor({
     editable: false,
     extensions: extensions,
