@@ -108,18 +108,22 @@ export default function useStylesAndExtensions({
           flexDirection: "column",
           gap: "0.25rem",
         },
-        "figure figcaption br::before": isEditable
+        "figure figcaption:has(> br)::before": isEditable
           ? {
               content: '"Image caption (optional)"',
               color:
                 theme.colorScheme === "dark"
                   ? theme.colors.gray[7]
                   : theme.colors.gray[4],
+              float: "left",
+              height: 0,
             }
           : undefined,
-        "figure figcaption br": {
-          content: "close-quote",
-        },
+        "figure figcaption:has(> br)": isEditable
+          ? undefined
+          : {
+              display: "none",
+            },
         "& hr": {
           marginBottom: "20px",
         },
