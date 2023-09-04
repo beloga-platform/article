@@ -15,7 +15,7 @@ export default function AnnouncementBanner() {
       })}
     >
       <IconArchive size={14} />
-      <Text align="center">Immutable copy (0.13.2)</Text>
+      <Text align="center">Immutable copy (0.13.3)</Text>
     </Group>
   );
 }

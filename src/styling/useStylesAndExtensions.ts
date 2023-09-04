@@ -154,6 +154,7 @@ export default function useStylesAndExtensions({
         },
         HTMLAttributesImg: {
           id: "article-img",
+          style: "max-width:100%;width:100%;",
         },
       }),
       Image.configure({
