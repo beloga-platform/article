@@ -1,6 +1,6 @@
-import { Accordion, Button, Group, Text } from "@mantine/core";
+import { Accordion, Button, Group } from "@mantine/core";
 import { useClipboard } from "@mantine/hooks";
-import { IconClipboard } from "@tabler/icons-react";
+import { IconClipboard, IconSparkles } from "@tabler/icons-react";
 import { showNotification } from "@mantine/notifications";
 
 import useIsSmallScreen from "../../../hooks/useIsSmallScreen";
@@ -15,16 +15,14 @@ export default function Claim({ index, claim }: Props) {
       <Accordion.Panel>
         <Group spacing={8}>
           <Button
-            leftIcon={<Text sx={() => ({ fontSize: "18px" })}>✨</Text>}
             component="a"
-            href={`https://www.beloga.xyz/assistant?q=${encodeURIComponent(
-              claim
-            )}`}
+            href={`https://www.beloga.xyz/ai?q=${encodeURIComponent(claim)}`}
             color="blue"
             target="_blank"
             size={isSmallScreen ? "md" : undefined}
+            leftIcon={<IconSparkles size={16} />}
           >
-            Fact insights
+            AI Insights
           </Button>
           <Button
             leftIcon={<IconClipboard size={14} />}
